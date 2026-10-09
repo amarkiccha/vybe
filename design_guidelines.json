@@ -1,0 +1,165 @@
+{
+  "app_name": "VYBE",
+  "personality": "3 Editorial Mobile (Customized with Tactile premium cards and user-provided palette)",
+  "personality_one_liner": "A premium, sophisticated space where communication feels like reading an elegant magazine, anchored by deep maroon headers and warm ivory cards.",
+  "color": {
+    "surface": "#F5F0E8",
+    "onSurface": "#241C1A",
+    "surfaceSecondary": "#FFFCF7",
+    "onSurfaceSecondary": "#241C1A",
+    "surfaceTertiary": "#E9DED4",
+    "onSurfaceTertiary": "#241C1A",
+    "surfaceInverse": "#241C1A",
+    "onSurfaceInverse": "#F5F0E8",
+    "brand": "#6E0901",
+    "brandPrimary": "#6E0901",
+    "onBrandPrimary": "#F5F0E8",
+    "brandSecondary": "#3B0908",
+    "onBrandSecondary": "#F5F0E8",
+    "brandTertiary": "#E9DED4",
+    "onBrandTertiary": "#241C1A",
+    "success": "#23845B",
+    "onSuccess": "#FFFFFF",
+    "warning": "#E89B1A",
+    "onWarning": "#241C1A",
+    "error": "#C93434",
+    "onError": "#FFFFFF",
+    "info": "#77716D",
+    "onInfo": "#FFFFFF",
+    "border": "#E9DED4",
+    "borderStrong": "#3B0908",
+    "divider": "#E9DED4",
+    "muted": "#77716D",
+    "onBrand": "#F5F0E8"
+  },
+  "colorDark": {
+    "surface": "#1A0A0A",
+    "onSurface": "#F5F0E8",
+    "surfaceSecondary": "#241C1A",
+    "onSurfaceSecondary": "#F5F0E8",
+    "surfaceTertiary": "#3B0908",
+    "onSurfaceTertiary": "#F5F0E8",
+    "surfaceInverse": "#F5F0E8",
+    "onSurfaceInverse": "#1A0A0A",
+    "brand": "#6E0901",
+    "brandPrimary": "#6E0901",
+    "onBrandPrimary": "#F5F0E8",
+    "brandSecondary": "#3B0908",
+    "onBrandSecondary": "#F5F0E8",
+    "brandTertiary": "#3B0908",
+    "onBrandTertiary": "#F5F0E8",
+    "border": "#3B0908",
+    "borderStrong": "#6E0901",
+    "divider": "#3B0908",
+    "muted": "#A59D96",
+    "onBrand": "#F5F0E8"
+  },
+  "typography": {
+    "displayFontFamily": "Playfair Display",
+    "textFontFamily": "Plus Jakarta Sans",
+    "scale": { "sm": 12, "base": 14, "lg": 16, "xl": 20, "2xl": 24 }
+  },
+  "spacing": { 
+    "rule": "Generous vertical breathing room for content, grouped elements spaced naturally. Use md for inner component padding and lg/xl for sections.", 
+    "xs": 4, "sm": 8, "md": 12, "lg": 16, "xl": 24, "2xl": 32, "3xl": 48 
+  },
+  "radius_tokens": { "sm": 6, "md": 12, "lg": 20, "pill": 999 },
+  "shadow_tier": "1",
+  "navigation": "bottom_tabs",
+  "icon_set": "Phosphor",
+  "glassmorphism": {
+    "enabled": false,
+    "do's": ["Use solid colors per user request to avoid excessive glass effects."],
+    "dont's": ["Do not use blur or glassmorphism on headers, tab bars, or cards."]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-blur",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "haptics": {
+    "events": {
+      "tab_press": "selection",
+      "send_message": "medium",
+      "capture_snap": "heavy",
+      "join_community": "success"
+    }
+  },
+  "screens": [
+    { 
+      "name": "Chats", 
+      "purpose": "Primary WhatsApp-style messaging hub for conversations.", 
+      "states": { 
+        "loading": "Centered spinner matching brandPrimary color.", 
+        "empty": "Illustration of a chat bubble, 'No messages yet', and 'Start a Chat' primary CTA.", 
+        "error": "Error reading messages, retry button." 
+      }, 
+      "layout": "Header uses brandPrimary background with VYBE logo and profile avatar. Below header: Search field. Horizontal 'Stories' avatar row with 'Add' button. Filter chips row (All/Unread/Groups/Favorites). The main content is a conversation list (ivory cards surfaceSecondary) with avatars, previews, and unread badges. Floating compose FAB at bottom right."
+    },
+    { 
+      "name": "Stories", 
+      "purpose": "Dark full-screen-ish immersive feed for ephemeral content.", 
+      "states": { 
+        "loading": "Skeleton grids for stories.", 
+        "empty": "No stories available, 'Add your first story' CTA.", 
+        "error": "Failed to load stories, retry button." 
+      }, 
+      "layout": "Dark background. Header title 'Stories', search icon, and red plus. Story avatar horizontal row. Filter chips (All/Friends/Explore). Masonry grid of story cards (image with gradient scrim, location/time/views on top). Includes Snap camera entry point with capture, filters, text, stickers."
+    },
+    { 
+      "name": "Communities", 
+      "purpose": "Discovery and engagement area for grouped interactions.", 
+      "states": { 
+        "loading": "Skeleton cards for communities.", 
+        "empty": "No communities joined. 'Explore Communities' primary button.", 
+        "error": "Unable to load communities, retry button." 
+      }, 
+      "layout": "Dark header (brandPrimary or surfaceInverse) with chips (For You/Learning/Tech/Jobs/Lifestyle). Hero card 'Learn Together Grow Together' using community imagery + gradient scrim + Explore button. Below: ivory 'Your Communities' list (surfaceSecondary) with Join/Open pills and member counts."
+    },
+    { 
+      "name": "Broadcast", 
+      "purpose": "Professional campaign management and mass messaging tool.", 
+      "states": { 
+        "loading": "Spinner in center.", 
+        "empty": "No campaigns sent. 'Create your first campaign' CTA.", 
+        "error": "Campaigns failed to load, retry button." 
+      }, 
+      "layout": "Header with chips (Campaigns/Contacts/Analytics). 'Create New Campaign' card. Grid of campaign type icons (Text/Image/Video/Link/Product). Rows for Audience, Schedule, Templates, Analytics. Large 'Send Campaign' sticky primary button at the bottom."
+    },
+    { 
+      "name": "Onboarding & Settings", 
+      "purpose": "Language selection onboarding and privacy controls.", 
+      "states": { 
+        "loading": "Spinner.", 
+        "empty": "N/A", 
+        "error": "Failed to save settings, retry." 
+      }, 
+      "layout": "Onboarding: Full screen language selection grid. Important: Show languages (Kannada, Hindi, Telugu, Tamil, Malayalam, Marathi, Bengali) in their native scripts. Do not force Latin UI fonts onto Indic text, let the system render them natively. Settings: List view for Privacy & Safety, Blocked users, Content filters toggle, Two-step verification."
+    }
+  ],
+  "images": {
+    "avatar_1": { "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBzbWlsaW5nJTIwcGVyc29uJTIwcG9ydHJhaXQlMjBoZWFkc2hvdHxlbnwwfHx8fDE3OTE1MjY0NDF8MA&ixlib=rb-4.1.0&q=85", "alt": "Smiling woman portrait" },
+    "avatar_2": { "url": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBzbWlsaW5nJTIwcGVyc29uJTIwcG9ydHJhaXQlMjBoZWFkc2hvdHxlbnwwfHx8fDE3OTE1MjY0NDF8MA&ixlib=rb-4.1.0&q=85", "alt": "Professional smiling woman" },
+    "avatar_3": { "url": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBzbWlsaW5nJTIwcGVyc29uJTIwcG9ydHJhaXQlMjBoZWFkc2hvdHxlbnwwfHx8fDE3OTE1MjY0NDF8MA&ixlib=rb-4.1.0&q=85", "alt": "Smiling woman in white shirt" },
+    "avatar_4": { "url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBzbWlsaW5nJTIwcGVyc29uJTIwcG9ydHJhaXQlMjBoZWFkc2hvdHxlbnwwfHx8fDE3OTE1MjY0NDF8MA&ixlib=rb-4.1.0&q=85", "alt": "Smiling man portrait" },
+    "community_hero": { "url": "https://images.unsplash.com/photo-1681949103006-70066fb25dfe?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NjV8MHwxfHNlYXJjaHwzfHxjcmVhdGl2ZSUyMGNvbW11bml0eSUyMHBlb3BsZSUyMGNvbGxhYm9yYXRpb258ZW58MHx8fHwxNzkxNTI2NDQxfDA&ixlib=rb-4.1.0&q=85", "alt": "Creative community collaboration" }
+  },
+  "instructions_to_main_agent": [
+    "Theme: Implement both Light and Dark themes. The provided `colorDark` block should be used to map colors when the user switches to dark mode.",
+    "Typography Rule: `Plus Jakarta Sans` is strictly for English/Latin UI elements. When displaying Indic scripts (Kannada, Hindi, etc.) during onboarding and chats, DO NOT force the custom font family. Allow React Native to fall back to the native system font for Indic characters, otherwise rendering issues will occur.",
+    "Editorial Touch: Use `Playfair Display` exclusively for high-impact editorial moments, such as the 'Stories' main title or 'Learn Together Grow Together' community hero heading.",
+    "Layout & Headers: Ensure header sections (including safe area) use the `brandPrimary` (#6E0901) or `brandSecondary` background in light mode to match the 'dark maroon/burgundy header areas' requirement. Content cards beneath the header should rest on `surfaceSecondary` (#FFFCF7).",
+    "Tab Bar Specifics: The active tab must be a filled rounded-square pill (using `radius_tokens.md` or similar) in maroon (`brandPrimary`) with icon and label inside. Inactive tabs should be purely `muted` text/icons with no background pill.",
+    "Images & Contrast: All image-based cards (like Story cards or the Community Hero) MUST have a vertical gradient scrim overlay from transparent to dark (at the bottom) to guarantee text readability.",
+    "Effects constraint: Do not use heavy glassmorphism/blur effects per user request. Use solid colors and standard elevations.",
+    "Do not use any Emojis in the system UI.",
+    "Integrate haptics for core interactions like tab selection, sending messages, and capturing snaps."
+  ]
+}

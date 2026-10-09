@@ -1,0 +1,74 @@
+{
+  "expo": {
+    "name": "VYBE",
+    "slug": "vybe",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "vybe",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.emergent.vybemessenger.wso3gh",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Capture snaps and stories to share",
+        "NSMicrophoneUsageDescription": "Record voice messages and videos with sound",
+        "NSPhotoLibraryUsageDescription": "Share photos and videos from your gallery"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#3B0908"
+      },
+      "package": "com.emergent.vybemessenger.wso3gh",
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-image.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#000000"
+        }
+      ],
+      "expo-font",
+      "expo-image",
+      "expo-secure-store",
+      "expo-web-browser",
+      "expo-status-bar",
+      "expo-localization",
+      "expo-audio",
+      "expo-video",
+      "@react-native-vector-icons/ionicons",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Capture snaps and stories to share",
+          "microphonePermission": "Record videos with sound",
+          "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Share photos and videos from your gallery"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

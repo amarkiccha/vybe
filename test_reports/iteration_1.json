@@ -1,0 +1,49 @@
+{
+  "summary": "Backend regression suite (27 tests) covers auth, chat, stories, communities, broadcast, media. 26 passed, 1 skipped. All auth flows (register/login/me/logout/lockout/two-step), chat (idempotent send, edit/delete/react/forward/pin/typing/search), stories (feed, text story CRUD, close_friends audience), communities (public/private join flows, canRead=false), broadcast (contacts CRUD, 409 dup, CSV preview, templates/segments, campaign create+submit+delivery, non-VYBE => external_provider_not_configured, analytics, recipient unsubscribe), and media access control work as specified. Frontend: language selection with 8 Indic languages renders correctly; Kannada selected -> auth screen -> login as demo -> Chats tab renders in Kannada with no raw translation keys. All 4 tabs (Chats/Stories/Communities/Broadcast) navigate and render. CRITICAL: opening any chat row triggers ErrorBoundary ('Cannot read properties of undefined (reading type)') at Bubble component — chat screen fully unusable in web preview. Deprecated packages detected: none. SafeAreaView issues detected: none. Note: the frontend uses expo-audio (not expo-av), which is correct.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "POST /api/stories", "issue": "audience enum is 'everyone' (not 'all' as mentioned in request). React Native app passes 'everyone' so OK, but doc inconsistency."},
+      {"endpoint": "POST /api/messages/:id/forward and /react", "issue": "Return 204 (not 200) on success; harmless but not documented."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Bubble (/app/frontend/src/components/chat.tsx:38, used in /app/frontend/app/chat/[id].tsx:233)", "issue": "Opening any chat row crashes via ErrorBoundary: 'TypeError: Cannot read properties of undefined (reading type)' at Bubble. Likely cause: `conv={c!}` is passed non-null while conv query is still loading, so `conv.type === 'group'` on line 55 throws. FlatList renders when `initial` (messages) is false, but conv query (line 30) can still be undefined. Guard with `if (!c) return null;` at top of Bubble OR gate the FlatList on `!initial && c`.", "testID": "chat-messages-list", "priority": "CRITICAL"}
+    ],
+    "integration_issues": [
+      {"flow": "Login -> Chats initial load", "issue": "Browser console logs a 500 error during the auth transition. Login then succeeds; appears to be a protected endpoint hit before the token is attached. Low impact but noisy.", "affected_testIDs": ["auth-submit-button", "chats-screen"]}
+    ],
+    "design_issues": [
+      {"screen": "Stories feed", "issues": ["Orphan test story 'hi' from TestStories.test_text_story_crud_and_viewers appears briefly in the Priya Sharma story group when run too close in sequence; stories expire in 24h so it will auto-clean. No action required."]}
+    ],
+    "react_native_issues": [
+      {"component": "Bubble", "issue": "Non-null assertion `conv={c!}` masks the race condition that produces the above crash. Reference: /app/frontend/app/chat/[id].tsx:233"}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_vybe_api.py",
+    "/app/backend/tests/conftest.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Fix Bubble crash: guard against undefined conv before rendering FlatList rows. Either `renderItem={({item}) => c ? <Bubble conv={c} ... /> : null}` or add `if (!c) return null;` at the top of Bubble. This is the only blocker for the chats UX.",
+    "Investigate stray 500 console error on login transition (likely an auth-less fetch firing early).",
+    "(Doc) Align README/README-style notes with API: stories audience is 'everyone'|'contacts'|'close_friends'."
+  ],
+  "critical_code_review_comments": [
+    "chat/[id].tsx:233 uses `c!` non-null assertion while c may still be loading — classic cause of the Bubble runtime crash we saw.",
+    "chat.tsx Bubble has no runtime guard on `conv` before accessing `conv.type` — defensive null check recommended.",
+    "No deprecated expo packages detected (expo-audio/expo-video in use)."
+  ],
+  "updated_files": [
+    "/app/backend/tests/conftest.py",
+    "/app/backend/tests/test_vybe_api.py"
+  ],
+  "success_rate": {"backend": "96% (26/27, 1 skipped)", "frontend": "70% (language, auth, 4-tab navigation, broadcast list render OK; chat open crashes)"},
+  "seed_data_creation": "A few TEST_* registered users, TEST broadcast contacts, 1 TEST campaign and bulk +55 TEST contacts were created during the test run. All test contacts have TEST prefix. No seeded demo data was mutated. One leftover text story 'hi' owned by demo@vybe.app will auto-expire within 24h.",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Backend is solid. The only blocker is the Bubble crash on chat open. After E1 patches /app/frontend/app/chat/[id].tsx (gate on `c`) or Bubble (early return when conv is undefined), re-run (1) pytest /app/backend/tests, (2) Playwright: language -> kn -> continue -> login demo -> open any chat row (e.g. first chat-row-*) -> verify message list renders and `[data-testid='composer-input']` is tappable; send a text. If TestBroadcast.test_confirmation_required_over_threshold is skipped, run it in isolation: `pytest test_vybe_api.py::TestBroadcast::test_confirmation_required_over_threshold -v`. Avoid pounding demo@vybe.app with wrong passwords (lockout).",
+  "rca_of_issue": "Chat open crash RCA: /app/frontend/app/chat/[id].tsx line 222 renders FlatList once `initial` (messages fetched) is false. However the conversation detail query (line 30) is independent, and on first paint `c = conv.data` can still be undefined when messages have already arrived (particularly on web where fetches race). Line 233 passes `conv={c!}`. Inside Bubble (/app/frontend/src/components/chat.tsx:55) the very first field access is `conv.type === 'group'` — on undefined this throws `Cannot read properties of undefined (reading 'type')`, caught by ErrorBoundary, producing the 'Something went wrong' screen. Reproduction: Playwright run included — login as demo, tap any chat-row-*, screen immediately shows the error boundary. Mitigation: either (a) gate FlatList on `!initial && c` to delay rendering until both resources are present, (b) guard inside Bubble (`if (!conv) return null;`), or (c) remove the non-null assertion and use `conv={c}` after making Conversation optional in Bubble props. (a) is cheapest and most correct."
+}

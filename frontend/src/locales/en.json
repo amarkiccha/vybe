@@ -1,0 +1,110 @@
+{
+  "app": { "tagline": "More than Messages.", "subtitle": "Chat. Share. Learn. Grow." },
+  "tabs": { "chats": "Chats", "stories": "Stories", "communities": "Communities", "broadcast": "Broadcast" },
+  "common": {
+    "continue": "Continue", "cancel": "Cancel", "save": "Save", "done": "Done", "retry": "Retry", "delete": "Delete", "send": "Send",
+    "search": "Search", "next": "Next", "back": "Back", "loading": "Loading…", "add": "Add", "create": "Create", "close": "Close",
+    "report": "Report", "block": "Block", "unblock": "Unblock", "mute": "Mute", "unmute": "Unmute", "join": "Join", "open": "Open",
+    "leave": "Leave", "requested": "Requested", "members_one": "{{count}} member", "members_other": "{{count}} members",
+    "seeAll": "See All", "you": "You", "on": "On", "off": "Off", "offline": "You're offline. Changes will sync when you reconnect.",
+    "reported": "Report submitted. Our team will review it.", "reportReason": "Tell us what's wrong", "comingSoon": "Pending — not available in this build"
+  },
+  "onboarding": { "chooseLanguage": "Choose your language", "languageHint": "You can change this anytime in Settings.", "preview": "Preview" },
+  "auth": {
+    "welcome": "Welcome to VYBE", "signIn": "Sign in", "signUp": "Create account", "name": "Full name", "email": "Email", "password": "Password",
+    "phone": "Phone (optional)", "pin": "Two-step PIN", "haveAccount": "Already have an account? Sign in", "noAccount": "New to VYBE? Create account",
+    "demoHint": "Demo account: demo@vybe.app / VybeDemo123!", "forgot": "Forgot password?", "passwordRule": "At least 8 characters"
+  },
+  "chats": {
+    "searchPlaceholder": "Search chats, people, messages…", "all": "All", "unread": "Unread", "groups": "Groups", "favorites": "Favorites",
+    "archived": "Archived", "requests": "Requests", "addStory": "Add", "myStory": "My Story", "empty": "No conversations yet",
+    "emptyHint": "Start a chat with friends, family or your team.", "startChat": "Start a Chat", "messagesFound": "Messages",
+    "typing": "{{name}} is typing…", "photo": "Photo", "video": "Video", "voice": "Voice message", "file": "Document", "snap": "Snap",
+    "campaign": "Announcement", "deleted": "This message was deleted", "edited": "edited", "forwarded": "Forwarded",
+    "forwardedMany": "Forwarded many times", "messagePlaceholder": "Message", "reply": "Reply", "edit": "Edit", "forward": "Forward",
+    "pin": "Pin", "unpin": "Unpin", "pinned": "Pinned message", "react": "React", "failed": "Not sent. Tap to retry.",
+    "newChat": "New chat", "newGroup": "New group", "groupName": "Group name", "selectMembers": "Select members", "searchPeople": "Search people",
+    "requestBanner": "This person isn't in your contacts. Accept to reply, or block.", "accept": "Accept", "info": "Chat info",
+    "loadOlder": "Loading older messages…", "recording": "Recording… tap to send", "attach": "Attach", "gallery": "Gallery", "camera": "Camera",
+    "document": "Document", "tapToView": "Tap to view snap", "viewOnce": "View once", "opened": "Opened", "unsubscribe": "Unsubscribe",
+    "unsubscribed": "You won't receive further announcements from this sender.", "forwardTo": "Forward to (max 5)", "callsPending": "Voice & video calls are pending and not yet available.",
+    "readOnly": "Only admins can send messages", "e2eeNotice": "Messages are protected in transit (TLS). End-to-end encryption is not yet enabled."
+  },
+  "chatInfo": {
+    "members": "Members", "addMembers": "Add members", "makeAdmin": "Make admin", "removeAdmin": "Remove admin", "remove": "Remove",
+    "leaveGroup": "Leave group", "disappearing": "Disappearing messages", "favorite": "Favorite", "archive": "Archive", "pinChat": "Pin chat",
+    "onlyAdmins": "Only admins can post", "blockUser": "Block user", "reportChat": "Report", "admin": "Admin", "owner": "Owner",
+    "hours24": "24 hours", "days7": "7 days", "hour1": "1 hour"
+  },
+  "stories": {
+    "title": "Stories", "friends": "Friends", "explore": "Explore", "empty": "No stories yet", "emptyHint": "Share a moment with your people.",
+    "addFirst": "Add your first story", "create": "Create story", "text": "Text", "snapCamera": "Snap camera", "fromGallery": "From gallery",
+    "typeSomething": "Type something…", "audience": "Who can see this?", "everyone": "Everyone on VYBE", "contacts": "My contacts",
+    "closeFriends": "Close friends", "audienceEveryoneHint": "Visible in Explore to all VYBE users", "audienceContactsHint": "Only people you chat with",
+    "audienceCloseHint": "Only people on your Close Friends list", "post": "Share story", "views_one": "{{count}} view", "views_other": "{{count}} views",
+    "viewers": "Viewers", "replyPlaceholder": "Reply…", "muteUser": "Mute stories", "expires": "Disappears after 24 hours",
+    "privacyNote": "Recipients can still capture or save what they see. Disappearing content is not a guarantee.", "deleteStory": "Delete story"
+  },
+  "camera": {
+    "permissionTitle": "Camera access", "permissionBody": "Allow camera to capture snaps and stories.", "allow": "Allow access",
+    "openSettings": "Open Settings", "micBody": "Allow microphone to record videos with sound.", "photo": "Photo", "video": "Video",
+    "flip": "Flip", "flash": "Flash", "retake": "Retake", "addText": "Text", "stickers": "Stickers", "filters": "Filters", "draw": "Draw",
+    "shareStory": "Your Story", "sendSnap": "Send snap", "disappearAfter": "Disappears", "unsupported": "Camera is not available on this device.",
+    "recordHint": "Tap to record, tap again to stop", "drawPending": "Drawing & cropping are pending in this build"
+  },
+  "communities": {
+    "title": "Communities", "forYou": "For You", "learning": "Learning", "tech": "Tech", "jobs": "Jobs", "creators": "Creators",
+    "business": "Business", "lifestyle": "Lifestyle", "heroTitle": "Learn Together\nGrow Together",
+    "heroBody": "Explore knowledge, skills and opportunities with your community.", "explore": "Explore Communities",
+    "yours": "Your Communities", "recommended": "Recommended", "private": "Private", "public": "Public", "empty": "No communities here yet",
+    "create": "Create community", "name": "Community name", "description": "Description", "category": "Category",
+    "privateHint": "Members must be approved. Content is hidden from non-members.", "channels": "Channels", "announcement": "Announcements",
+    "discussion": "Discussion", "resources": "Resources", "joinToPost": "Join this community to post", "staffOnly": "Only admins can post announcements",
+    "poll": "Poll", "question": "Question", "option": "Option {{n}}", "addOption": "Add option", "vote": "Vote", "votes_one": "{{count}} vote", "votes_other": "{{count}} votes",
+    "pending": "Pending approval", "approve": "Approve", "ban": "Ban", "makeModerator": "Make moderator", "pinnedOnly": "Pinned",
+    "privateLocked": "This is a private community. Request to join to see its channels.", "searchPlaceholder": "Search communities…", "attachFile": "Attach file"
+  },
+  "broadcast": {
+    "title": "Broadcast", "campaigns": "Campaigns", "contacts": "Contacts", "analytics": "Analytics", "createCampaign": "Create New Campaign",
+    "createHint": "Send messages, offers or updates to your audience.", "text": "Text", "image": "Image", "video": "Video", "link": "Link", "product": "Product",
+    "audience": "Audience", "audienceHint": "Select audience or segment", "schedule": "Schedule", "scheduleHint": "Send now or schedule",
+    "templates": "Templates", "templatesHint": "Use saved message templates", "analyticsHint": "Track delivery, open rate and more",
+    "sendCampaign": "Send Campaign", "saveDraft": "Save draft", "history": "Campaign history", "noCampaigns": "No campaigns yet",
+    "campaignName": "Campaign name", "message": "Message", "linkUrl": "Link URL", "productTitle": "Product title", "price": "Price",
+    "allContacts": "All opted-in contacts", "now": "Send now", "inOneHour": "In 1 hour", "tomorrow": "Tomorrow 10:00 AM", "preview": "Preview",
+    "eligible": "{{count}} eligible recipients", "confirmLarge": "This campaign will reach {{count}} people. Confirm to send.",
+    "pendingApproval": "Large campaign — approval required before sending.", "approve": "Approve campaign",
+    "addContact": "Add contact", "importCsv": "Import CSV", "csvHint": "Paste CSV with header: name,phone,email,tags,consent", "validate": "Validate",
+    "importNow": "Import {{count}} contacts", "consent": "Consent", "optedIn": "Opted in", "pendingConsent": "Pending", "optedOut": "Opted out",
+    "unsubscribed": "Unsubscribed", "segments": "Segments", "newSegment": "New segment", "tags": "Tags (comma separated)", "noContacts": "No contacts yet",
+    "delivered": "Delivered", "read": "Read", "failed": "Failed", "suppressed": "Suppressed", "sent": "Campaigns sent",
+    "status_draft": "Draft", "status_pending_approval": "Needs approval", "status_scheduled": "Scheduled", "status_sending": "Sending",
+    "status_completed": "Completed", "status_failed": "Failed", "deliveryNote": "Delivered inside VYBE to matching users. External SMS/WhatsApp delivery needs a provider and is not configured.",
+    "consentNote": "Only opted-in contacts receive campaigns. Unsubscribed contacts are suppressed automatically.", "valid": "Valid", "invalid": "Invalid", "duplicate": "Duplicate",
+    "deliveries": "Deliveries", "useTemplate": "Use template", "saveTemplate": "Save as template"
+  },
+  "settings": {
+    "title": "Settings", "profile": "Profile", "bio": "About", "language": "Language", "theme": "Theme", "system": "System", "light": "Light", "dark": "Dark",
+    "privacy": "Privacy & Safety", "readReceipts": "Read receipts", "messageRequests": "Message requests", "messageRequestsHint": "Manage who can message you",
+    "everyone": "Everyone", "requestsOnly": "New people go to Requests", "storyAudience": "Default story audience", "closeFriends": "Close friends",
+    "contentFilter": "Content filters", "contentFilterHint": "Hide explicit content in public spaces", "twoStep": "Two-step verification",
+    "twoStepHint": "Require a 6-digit PIN when signing in", "enterPin": "Enter a 6-digit PIN", "blocked": "Blocked users", "blockedCount": "{{count}} blocked",
+    "sessions": "Devices & sessions", "thisDevice": "This device", "revoke": "Sign out", "security": "Security status", "e2ee": "End-to-end encryption",
+    "e2eeStatus": "Not yet enabled — messages use TLS in transit and are stored on VYBE servers.", "calls": "Voice & video calls", "push": "Push notifications",
+    "pending": "Pending", "exportData": "Export my data", "deleteAccount": "Delete account", "deleteConfirm": "Enter your password to permanently delete your account.",
+    "logout": "Log out", "exported": "Your data export is ready ({{count}} messages)."
+  },
+  "time": { "yesterday": "Yesterday", "minutesAgo_one": "{{count}}m ago", "minutesAgo_other": "{{count}}m ago", "hoursAgo_one": "{{count}}h ago", "hoursAgo_other": "{{count}}h ago" },
+  "errors": {
+    "generic": "Something went wrong. Please try again.", "offline": "You're offline. Check your connection.", "invalid_credentials": "Incorrect email or password.",
+    "email_taken": "This email is already registered.", "validation_failed": "Please check the highlighted fields.", "pin_required": "Enter your two-step PIN.",
+    "invalid_pin": "Incorrect PIN.", "account_locked": "Too many attempts. Try again in 15 minutes.", "blocked": "You can't message this person.",
+    "rate_limited": "You're doing that too fast. Please wait a moment.", "content_blocked": "This content was blocked by the safety filter.",
+    "edit_window_passed": "Messages can only be edited within 15 minutes.", "delete_window_passed": "Messages can only be deleted within 1 hour.",
+    "forward_limit": "Highly forwarded messages can only go to one chat at a time.", "no_eligible_recipients": "No opted-in contacts in this audience.",
+    "file_too_large": "File is too large (max 25 MB).", "unsupported_type": "This file type isn't supported.", "duplicate_contact": "This contact already exists.",
+    "private_community": "This community is private.", "staff_only": "Only admins can do this.", "join_to_post": "Join to participate.",
+    "admin_only": "Only group admins can do this.", "recovery_not_configured": "Account recovery needs an email provider that isn't configured yet.",
+    "storage_quota": "Storage is full. Try again later.", "daily_limit": "Daily sending limit reached.", "loadFailed": "Couldn't load. Pull to retry."
+  }
+}
